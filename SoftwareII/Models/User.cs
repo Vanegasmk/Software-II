@@ -6,7 +6,6 @@ namespace SoftwareII.Models
     public class User
     {
         public long Id { get; set; }
-        public string DNI { get; set; }
         public string Name { get; set; }
         public string FirstSurname { get; set; }
         public string LastSurname { get; set; }
