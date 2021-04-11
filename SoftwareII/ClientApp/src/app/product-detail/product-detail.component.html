@@ -27,31 +27,26 @@
     </div>
 </nav>
 
-<app-nav></app-nav>
-
 
 
 <div class="container-fluid mt-5">
     <div class=" p-3 mb-5 bg-white rounded">
         <div class="d-flex justify-content-center py-5">
             <div>
-                <h3>Producto Nombre</h3>
-                <img src="https://agroventas.com/wp-content/uploads/2015/10/ivomecgold.jpg" alt="IVOMEC GOLD"> <!--TODO: SET src: imagen del producto de la BD y alt: monbre del producto-->
+                <h3>{{ product.name }}</h3>
+                <img src="{{product.image}}"   weight="300" height="300" alt="IVOMEC GOLD"> <!--TODO: SET src: imagen del producto de la BD y alt: monbre del producto-->
             </div>
         
             <div>
                 <br>
                 <div class="form-group row">
-                    <label>Marca:</label> 
+                    <label>Marca: {{ product.brand }}</label> 
                 </div>
                 <div class="form-group row">
-                    <label>Composición:</label> 
-                </div>       
-                <div class="form-group row">
-                    <label>Presentación:</label> 
+                    <label>Código: {{ product.code }}</label> 
                 </div>
                 <div class="form-group row">
-                    <label>Precio:</label> 
+                    <label>Precio: ₡{{ product.price }}</label> 
                 </div>
                 <div class="form-group row">
                     <label>Cantidad:</label> 

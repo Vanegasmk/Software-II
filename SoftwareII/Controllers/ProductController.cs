@@ -1,7 +1,8 @@
+using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using SoftwareII.Models;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
@@ -12,20 +13,32 @@ namespace SoftwareII.Controllers
     public class ProductController : ControllerBase
     {
         private readonly DataBaseContext _context;
+
         public ProductController(DataBaseContext context)
         {
             _context = context;
         }
 
-        [HttpGet("{name}")]
-        public  IEnumerable<Product> NameFilter(string name)
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Product>>> GetProductos()
         {
-            var results = _context.Products.Where(p => p.Name.Contains(name));
-            
-            return results;
+            return await _context.Products.ToListAsync();
+        } 
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Product>> GetProducto(long id)
+        {
+            var product = await _context.Products.FindAsync(id);
+
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return product;
         }
 
-        [HttpGet("{category}")]
+
+        [HttpGet("{category}/filter")]
         public IEnumerable<Product> CategoryFilter(string category)
         {
             var results = _context.Products.Where(p => p.Category.Contains(category));
