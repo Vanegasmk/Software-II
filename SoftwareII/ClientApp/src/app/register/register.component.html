@@ -3,80 +3,52 @@
     <h5 class="fontLucidaCalligraphy">Más de 30 años siviendo al Agricultor y Ganadero</h5>
 </div>
 <div class="container-fluid">
-    <div class="d-flex justify-content-center py-5">
+    <form  (ngSubmit)="postUser()">
+        <div class="d-flex justify-content-center py-5">
 
-        <div class="col-sm-12 col-md-4 py-5">
-            <br />
-            <div class="input-group">
-                <span class="input-group-text">Identificación</span>
-                <input type="text" aria-label="dni" class="form-control" placeholder="Identificación" />
+            <div class="col-sm-12 col-md-4 py-5">
+                <br />
+                <div class="input-group">
+                    <span class="input-group-text">Nombre</span>
+                    <input type="text"  placeholder="Nombre" class="form-control" name="name" [(ngModel)]="form.name" />
+                </div>
+                <br />
+                <div class="input-group mb-3">
+                    <span class="input-group-text">I Apellido</span>
+                    <input type="text" class="form-control" placeholder="Apellido"  name="firstSurname" [(ngModel)]="form.firstSurname" />
+                    <span class="input-group-text">II Apellido</span>
+                    <input type="text" class="form-control" placeholder="Apellido"  name="secondSurname"  [(ngModel)]="form.lastSurname"/>
+                </div>
+                <br />
+                <div class="input-group">
+                    <span class="input-group-text">Correo</span>
+                    <input type="text" placeholder="Correo Electrónico" class="form-control" name="email"  [(ngModel)]="form.email"/>
+                </div>
+                <br />
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Contraseña</span>
+                    <input type="password" class="form-control" placeholder="Contraseña"   name="password" [(ngModel)]="form.password"/>
+                    <span class="input-group-text">Confirmar</span>
+                </div>
             </div>
-            <br />
-            <div class="input-group">
-                <span class="input-group-text">Nombre</span>
-                <input type="text" aria-label="First name" placeholder="Nombre" class="form-control" />
-            </div>
-            <br />
-            <div class="input-group mb-3">
-                <span class="input-group-text">I Apellido</span>
-                <input type="text" class="form-control" placeholder="Apellido" aria-label="Username" />
-                <span class="input-group-text">II Apellido</span>
-                <input type="text" class="form-control" placeholder="Apellido" aria-label="Server" />
-            </div>
-            <br />
-            <div class="input-group mb-3">
-                <span class="input-group-text">Nacimiento</span>
-                <input type="date" class="form-control" name="bord" />
-            </div>
-            <br />
-            <div class="input-group">
-                <span class="input-group-text">Correo</span>
-                <input type="text" aria-label="Correo" placeholder="Correo Electrónico" class="form-control" />
-            </div>
-            <br />
-            <div class="input-group mb-3">
-                <span class="input-group-text">Contraseña</span>
-                <input type="text" class="form-control" placeholder="Contraseña" aria-label="Contraseña" />
-                <span class="input-group-text">Confirmar</span>
-                <input type="text" class="form-control" placeholder="Contraseña" aria-label="Contraseña" />
+    
+            <div class="col-sm-12 col-md-4 py-5">
+                <br />
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping">Móvil</span>
+                    <input type="text" class="form-control" placeholder="+ 506" name="phone" [(ngModel)]="form.phone"/>
+                </div>
+                <br />
+                <div class="input-group">
+                    <span class="input-group-text">Dirección</span>
+                    <input type="text" placeholder="Dirección" class="form-control" name="address"  [(ngModel)]="form.address">
+                </div>
             </div>
         </div>
-
-        <div class="col-sm-12 col-md-4 py-5">
-            <br />
-            <div class="input-group flex-nowrap">
-                <span class="input-group-text" id="addon-wrapping">Móvil</span>
-                <input type="text" class="form-control" placeholder="+ 506" aria-label="+ 506"
-                    aria-describedby="addon-wrapping" />
-            </div>
-            <br />
-            <div class="input-group flex-nowrap">
-                <span class="input-group-text" id="addon-wrapping">Teléfono</span>
-                <input type="text" class="form-control" placeholder="Casa" aria-label="Casa"
-                    aria-describedby="addon-wrapping" />
-            </div>
-            <br />
-            <div class="input-group">
-                <span class="input-group-text">Dirección</span>
-                <textarea class="form-control" aria-label="With textarea" placeholder="Descripción exacta"></textarea>
-            </div>
-            <br />
-            <div class="input-group flex-nowrap">
-                <span class="input-group-text" id="addon-wrapping">Trabajo</span>
-                <textarea type="text" class="form-control" placeholder="Dirección del lugar de trabajo"
-                    aria-label="Dirección del lugar de trabajo" aria-describedby="addon-wrapping"></textarea>
-            </div>
-            <br />
-            <div class="input-group flex-nowrap">
-                <span class="input-group-text" id="addon-wrapping">Otra</span>
-                <textarea type="text" class="form-control" placeholder="Dirección alternativa"
-                    aria-label="Dirección alternativa" aria-describedby="addon-wrapping"></textarea>
-            </div>
+        <div class="text-center">
+            <button class="btn btn-outline-success" type="submit">
+                Guardar <i class="far fa-save"></i>
+            </button>
         </div>
-    </div>
-    <div class="text-center">
-        <button class="btn btn-outline-success">
-            Guardar <i class="far fa-save"></i>
-        </button>
-    </div>
+    </form>
 </div>

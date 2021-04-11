@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #198754;">
     <div class="container">
-        <a class="navbar-brand" href="#"><span class="fontSegoePrint">LA YUNTA</span></a>
+        <a class="navbar-brand" [routerLink]="['/shop']" routerLinkActive="router-link-active" ><span class="fontSegoePrint">LA YUNTA</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07"
             aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -11,16 +11,12 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Nosotros <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Inicio</a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown07" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Categorías</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown07">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <button class="dropdown-item" (click)="getProductsFilter('Veterinaria')" >Veterinaria</button>
+                        <button class="dropdown-item"  (click)="getProductsFilter('Agropecuaria')" >Agropecuaria</button>
                     </div>
                 </li>
             </ul>
@@ -30,6 +26,8 @@
         </div>
     </div>
 </nav>
+
+
 
 
 <div class="container">
@@ -56,35 +54,38 @@
         </a>
     </div>
 
-
-
-    <div class="card mt-3" style="width: 15rem">
-        <a href="product.html">
-            <!--TODO: LINK: VER PRODUCTO CAMBIAR URL-->
-            <img src="https://agroventas.com/wp-content/uploads/2015/10/ivomecgold.jpg" class="card-img-top"
-                alt="IVOMEC GOLD" />
-            <!--src: IMG(byte[]) FROM DB  alt: NOMBRE DEL PRODUCTO-->
-            <!--- Imagen del producto-->
-        </a>
-
-        <div class="card-body text-center">
-            <h5 class="card-title">IVOMEC GOLD</h5>
-            <!-- TITULO-->
-
-            <p class="card-text">
-                500 ml
-                <!-- PRESENTACION -->
-                <br /> Ivermertina 3.15
-            </p>
-            <!-- INGREDIENTE ACTIVO - CONTINE -->
-
-            <p class="text-success">CRC 00000.00</p>
-            <!--PRECIO ARTICULO-->
-
-            <button class="btn btn-outline-success">
-                Agregar <i class="fas fa-cart-plus"></i>
-            </button>
-            <!--- ADD PRODUCTO al CARRITO -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4" *ngFor="let product of products">
+                <div class="card mt-3" style="width: 15rem">
+                    <a [routerLink]="['/product',product.id]" routerLinkActive="router-link-active" >
+                        <!--TODO: LINK: VER PRODUCTO CAMBIAR URL-->
+                        <img src="{{ product.image }}" class="card-img-top"/>
+                        <!--src: IMG(byte[]) FROM DB  alt: NOMBRE DEL PRODUCTO-->
+                        <!--- Imagen del producto-->
+                    </a>
+            
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <!-- TITULO-->
+            
+                        <p class="card-text">
+                            {{ product.brand}}
+                            <!-- PRESENTACION -->
+                            <br /> {{product.code}}
+                        </p>
+                        <!-- INGREDIENTE ACTIVO - CONTINE -->
+            
+                        <p class="text-success">CRC {{product.price}}</p>
+                        <!--PRECIO ARTICULO-->
+            
+                        <button class="btn btn-outline-success">
+                            Agregar <i class="fas fa-cart-plus"></i>
+                        </button>
+                        <!--- ADD PRODUCTO al CARRITO -->
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

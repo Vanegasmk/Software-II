@@ -28,7 +28,7 @@ namespace SoftwareII.Controllers
         }
 
 
-        [HttpPost]
+        [HttpPost("register")]
         public async Task<ActionResult<User>> Register(User user)
         {
             _context.Users.Add(user);
